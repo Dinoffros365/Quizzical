@@ -1,36 +1,23 @@
 import { decode } from "html-entities";
-import QuestionItem from "./QuestionItem";
 import { nanoid } from "nanoid";
+import QuestionItem from "./QuestionItem";
 
 export default function QuestionBlock(props) {
-  const [choice, setChoise] = React.useState('')
 
-  let questionList = [
-    ...props.item.incorrect_answers,
-    props.item.correct_answer,
-  ];
+  let answers = props.answerList.map((listItem) => (
+    <QuestionItem
+      key={nanoid()}
+      text={listItem.answer}
+      checkingQustion={() => props.checkingQustion(props.id ,listItem.id)}
+      isTrue={listItem.isTrue}
+      isCheck={listItem.isCheck}   
+      isAnswer={listItem.isAnswer}
+    />));
 
-  function activeAnswer() {
-    
-  }
-  
-
-  
-  questionList = questionList.map((listItem, index) => {
-      return (<QuestionItem 
-        key = {nanoid()}
-        text = {listItem}
-        isAnswer = {index === questionList.length ? 'false' : 'true'}
-      />) 
-    })
-    
-    questionList.sort((a, b) => {
-      return 0.5 - Math.random();
-    });
   return (
     <div className="section-quizz__block">
       <h3 className="section-quizz__header">{decode(props.question)}</h3>
-      <ul className="section-quizz__list">{questionList}</ul>
+      <ul className="section-quizz__list">{answers}</ul>
     </div>
   );
 }

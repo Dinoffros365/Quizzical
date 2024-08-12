@@ -53,6 +53,7 @@ img {
   --bullet: #c1b6ad;
   --bullet-active: #665f55;
   --background-card:#403F3DCC;
+  --green: #94D7A2;
 }
 
 h2 {
@@ -180,6 +181,9 @@ h2 {
 
   background-color: var(--none);
 
+  color: var(--blue);
+  font-weight: 500;
+
   cursor: pointer;
 }
 
@@ -225,4 +229,39 @@ h2 {
   color: var(--white);
 
   cursor: pointer;
+}
+
+.section-quizz__span{
+  margin-top: 32px;
+  margin-right: 20px;
+
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.section-quizz__subtitle-block{
+  display: flex;
+  justify-content: center;
+}
+
+.section-quizz__btn_again{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.is-true{
+  border: 0px solid red;
+  background-color: var(--green);
+}
+
+.is-false{
+  opacity: 0.7;
+  background-color: var(--green);
+}
+
+.is-null{
+  opacity: 0.7;
 }
